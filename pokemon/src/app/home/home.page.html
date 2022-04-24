@@ -1,0 +1,39 @@
+
+<ion-toolbar>
+  <ion-title>Pokemon</ion-title>
+</ion-toolbar>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pokemons list</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+<input type="text" class="form-control" [(ngModel)]="searchText" placeholder="search">
+
+      <table class="table table-striped ion-margin">
+        <thead>
+          <tr>
+            <!-- <th scope="col">S.No</th> -->
+            <th scope="col">Pokemon Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pokemon of pokemonsList | search: searchText; index as i">
+            <!-- <td scope="row">{{ i + 1 }}</td> -->
+            <td> <a class="page-link" [routerLink]="['/pokemons/pokemon', i+1]">{{ pokemon.name }}</a> </td>
+          </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" (click)="goTo('previous')">Previous</a></li>
+          <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+          <li class="page-item"><a class="page-link" (click)="goTo('next')">Next</a></li>
+        </ul>
+      </nav>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

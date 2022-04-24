@@ -1,0 +1,141 @@
+<ion-content [fullscreen]="false">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pokemon Details</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-content>
+        <ion-list slot="content">
+          <ion-item>
+            <ion-label>Base Experience</ion-label>
+            <ion-label>{{ pokemonDetails?.base_experience }}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label> Height </ion-label>
+            <ion-label>{{ pokemonDetails?.height }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-accordion-group>
+    <ion-accordion value="Abiities">
+      <ion-item slot="header">
+        <ion-label>Abilities</ion-label>
+      </ion-item>
+      <ion-list slot="content">
+        <table class="table table-striped ion-margin">
+          <thead>
+            <tr>
+              <!-- <th scope="col">S.No</th> -->
+              <th scope="col">Ability Name</th>
+              <th scope="col">Slot</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ability of abilities; index as i">
+              <!-- <td scope="row">{{ i + 1 }}</td> -->
+              <td>
+                <a
+                  class="page-link"
+                  [routerLink]="['/pokemons/pokemon', i + 1]"
+                  >{{ ability.ability.name }}</a
+                >
+              </td>
+              <td>{{ ability.slot }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-list>
+    </ion-accordion>
+    <ion-accordion value="Forms">
+      <ion-item slot="header">
+        <ion-label>Forms</ion-label>
+      </ion-item>
+
+      <ion-list slot="content">
+        <table class="table table-striped ion-margin">
+          <thead>
+            <tr>
+              <!-- <th scope="col">S.No</th> -->
+              <th scope="col">Form Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let form of forms; index as i">
+              <!-- <td scope="row">{{ i + 1 }}</td> -->
+              <td>
+                <a
+                  class="page-link"
+                  [routerLink]="['/pokemons/pokemon', i + 1]"
+                  >{{ form.name }}</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-list>
+    </ion-accordion>
+    <ion-accordion value="Game Indicies">
+      <ion-item slot="header">
+        <ion-label>Game Indicies</ion-label>
+      </ion-item>
+
+      <ion-list slot="content">
+        <table class="table table-striped ion-margin">
+          <thead>
+            <tr>
+              <!-- <th scope="col">S.No</th> -->
+              <th scope="col">Game Index</th>
+              <th scope="col">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let game of gameIndicies; index as i">
+              <!-- <td scope="row">{{ i + 1 }}</td> -->
+              <td>
+                <a
+                  class="page-link"
+                  [routerLink]="['/pokemons/pokemon', i + 1]"
+                  >{{ game.game_index }}</a
+                >
+              </td>
+              <td> {{ game.version.name }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-list>
+    </ion-accordion>
+    <ion-accordion value="Moves">
+      <ion-item slot="header">
+        <ion-label>Moves</ion-label>
+      </ion-item>
+
+      <ion-list slot="content">
+        <table class="table table-striped ion-margin">
+          <thead>
+            <tr>
+              <!-- <th scope="col">S.No</th> -->
+              <th scope="col">Move Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let move of moves; index as i">
+              <!-- <td scope="row">{{ i + 1 }}</td> -->
+              <td>
+                <a
+                  class="page-link" (click)="goToMove(move)"
+                  >{{ move.move.name }}</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-list>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

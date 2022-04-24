@@ -1,0 +1,45 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pokemon Moves</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-list *ngIf="moveDetails">
+    <ion-item >
+      <ion-label>Accuracy</ion-label>
+      <ion-label>{{ moveDetails?.accuracy }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> Contest Type </ion-label>
+      <ion-label>{{ moveDetails?.contest_type.name }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Damage Class</ion-label>
+      <ion-label>{{ moveDetails?.damage_class.name }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> Effect </ion-label>
+      <ion-label>{{ moveDetails?.effect_entries[0].effect }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Short Effect</ion-label>
+      <ion-label>{{ moveDetails?.effect_entries[0].short_effect }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> Power </ion-label>
+      <ion-label>{{ moveDetails?.power }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>PP</ion-label>
+      <ion-label>{{ moveDetails?.pp }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> Target </ion-label>
+      <ion-label>{{ moveDetails?.target.name }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> Type </ion-label>
+      <ion-label>{{ moveDetails?.type.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
